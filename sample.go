@@ -16,7 +16,7 @@ type weatherData struct {
 func main() {
 	http.HandleFunc("/hello", hello)
 	
-	http.HandleFunc("/weather", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/weather/", func(w http.ResponseWriter, r *http.Request) {
 		city := strings.SplitN(r.URL.Path, "/", 3)[2]
 		
 		data ,err := query(city)
